@@ -1,18 +1,122 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <img alt="Vue logo" src="../assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <siteHeader></siteHeader>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import siteHeader from '@/components/common/siteHeader'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    siteHeader
   }
 }
 </script>
+<style lang="scss">
+@charset "UTF-8";
+ul li {
+  list-style: none;
+}
+
+ul {
+  padding: 0 !important;
+}
+
+a {
+  color: #444;
+  text-decoration: none;
+}
+
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  font-family: "Microsoft Yahei", "微软雅黑", arial, "\5b8b\4f53";
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-size: 14px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.maxbox {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 614px;
+  background-color: #F5F5F5;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.containers {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+</style>
+
