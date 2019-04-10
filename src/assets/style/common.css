@@ -77,14 +77,6 @@ h6 {
   clear: both;
 }
 
-.maxbox {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  min-height: 614px;
-  background-color: #F5F5F5;
-}
-
 .fl {
   float: left;
 }
@@ -94,6 +86,17 @@ h6 {
 }
 
 .containers {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.maxbox.box {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #F5F5F5;
+}
+
+.maxbox {
   width: 1200px;
   margin: 0 auto;
 }

@@ -1,52 +1,56 @@
 <template>
   <div>
     <div class="site-topbar">
-      <div class="containers clearfix">
-        <div class="topbar-nav fl">
-          <ul>
-            <li v-for="item in items" :key="item.id">
-              <a :href="item.link">{{item.name}}</a>
-              <!-- <router-link :to="links">{{item.name}}</router-link> -->
-            </li>
-            <!-- <li>
+        <div class="maxbox">
+          <div class="containers clearfix">
+          <div class="topbar-nav fl">
+            <ul>
+              <li v-for="item in items" :key="item.id">
+                <a :href="item.link">{{item.name}}</a>
+                <!-- <router-link :to="links">{{item.name}}</router-link> -->
+              </li>
+              <!-- <li>
             <a href="">{{link}}</a>
-            </li>-->
-          </ul>
+              </li>-->
+            </ul>
+          </div>
+          <div class="topbar-cart fr">
+            <a href>购物车(0)</a>
+          </div>
+          <div class="topbar-info fr">
+            <!-- <a href="./login.html">登录</a> -->
+            <router-link tag="a" to="/login">登录</router-link>
+            <a href>注册</a>
+            <a href>消息通知</a>
+          </div>
         </div>
-        <div class="topbar-cart fr">
-          <a href>购物车(0)</a>
-        </div>
-        <div class="topbar-info fr">
-          <!-- <a href="./login.html">登录</a> -->
-          <router-link tag="a" to="/login">登录</router-link>
-          <a href>注册</a>
-          <a href>消息通知</a>
-        </div>
-      </div>
-    </div>
-    <div class="site-header">
-      <div class="containers clearfix">
-        <div class="header-logo fl">
-          <a href="/" class="logo">
-            <!-- <img src="@/assets/img/logo.jpg" alt> -->
-          </a>
-        </div>
-        <div class="header-nav fl">
-          <ul>
-            <!-- <li v-for="item in navs" key="item.id">{{item.name}}</li> -->
-            <li v-for="item in navs" :key="item.id">
-              <!-- <a :href="url">{{item.name}}</a> -->
-              <router-link tag="a" :to="{path: item.url}">{{item.name}}</router-link>
-            </li>
-          </ul>
-        </div>
-        <div class="header-search fr">
-          <el-input placeholder="请输入搜索内容" size="small">
-            <el-button class="el-icon-search" slot="append"></el-button>
-          </el-input>
         </div>
       </div>
-    </div>
+      <div class="maxbox">
+        <div class="site-header">
+        <div class="containers clearfix">
+          <div class="header-logo fl">
+            <a href="/" class="logo">
+              <!-- <img src="@/assets/img/logo.jpg" alt> -->
+            </a>
+          </div>
+          <div class="header-nav fl">
+            <ul>
+              <!-- <li v-for="item in navs" key="item.id">{{item.name}}</li> -->
+              <li v-for="item in navs" :key="item.id">
+                <!-- <a :href="url">{{item.name}}</a> -->
+                <router-link tag="a" :to="{path: item.url}">{{item.name}}</router-link>
+              </li>
+            </ul>
+          </div>
+          <div class="header-search fr">
+            <el-input placeholder="请输入搜索内容" size="small">
+              <el-button class="el-icon-search" slot="append"></el-button>
+            </el-input>
+          </div>
+        </div>
+      </div>
+      </div>
   </div>
 </template>
 <script>
@@ -59,7 +63,7 @@ export default {
       navs: [
         {
           name: "小米手机",
-          url: '/xm'
+          url: "/xm"
         },
         {
           name: "红米",
@@ -67,11 +71,11 @@ export default {
         },
         {
           name: "电视",
-          url:'/demo'
+          url: "/demo"
         },
         {
           name: "笔记本",
-          url: '/computer'
+          url: "/computer"
         },
         {
           name: "家电"
@@ -155,8 +159,8 @@ export default {
 
 .site-header {
   margin: 40px 0;
-  a:hover{
-      color: #ff6700;
+  a:hover {
+    color: #ff6700;
   }
   .header-logo {
     .logo {

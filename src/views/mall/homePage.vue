@@ -1,48 +1,81 @@
 <template>
   <div class="wrap">
-    <div class="home-page">
-      <div class="page">
-        <ul>
-          <li v-for="item in itemList" :key="item">
-            <span>{{item.name}}</span>
-            <i class="el-icon-arrow-right"></i>
-          </li>
-        </ul>
-      </div>
-      <div class="page">
-        <!-- <ul>
+    <div class="maxbox">
+      <div class="home-page">
+        <div class="page">
+          <ul>
+            <li v-for="item in itemList" :key="item">
+              <span>{{item.name}}</span>
+              <i class="el-icon-arrow-right"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="page">
+          <!-- <ul>
         <li><img src="@/assets/img/pic1.jpg" alt=""></li>
-        </ul>-->
-        <el-carousel :interval="5000" arrow="always" height="420px">
-          <el-carousel-item v-for="item in picList" :key="item">
-            <img :src="item.pic" alt>
-          </el-carousel-item>
-        </el-carousel>
+          </ul>-->
+          <el-carousel :interval="5000" arrow="always" height="420px">
+            <el-carousel-item v-for="item in picList" :key="item">
+              <img :src="item.pic" alt>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </div>
+      <div class="sub">
+        <div class="list box">
+          <ul>
+            <li>选购手机</li>
+            <li>企业团购</li>
+            <li>F码通道</li>
+            <li>米粉卡</li>
+            <li>以旧换新</li>
+            <li>话费充值</li>
+          </ul>
+        </div>
+        <div class="list">
+          <img src="@/assets/img/sub1.jpg" alt>
+        </div>
+        <div class="list">
+          <img src="@/assets/img/sub2.jpg" alt>
+        </div>
+        <div class="list">
+          <img src="@/assets/img/sub3.jpg" alt>
+        </div>
+      </div>
+      <div class="common-img">
+        <img src="@/assets/img/img1.jpg" alt>
       </div>
     </div>
-    <div class="sub">
-      <div class="list box">
-        <ul>
-          <li>选购手机</li>
-          <li>企业团购</li>
-          <li>F码通道</li>
-          <li>米粉卡</li>
-          <li>以旧换新</li>
-          <li>话费充值</li>
-        </ul>
+    <div class="all">
+      <div class="maxbox">
+        <div class="common-title">
+          <div class="name">手机</div>
+          <div class="more">
+            查看全部
+            <i class="el-icon-arrow-right"></i>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="side">
+            <img :src="sideImg" alt>
+          </div>
+          <div class="page">
+            <div class="item" v-for="item in items" :key="item">
+              <div class="top-txt">{{item.txt}}</div>
+              <div class="cen-img">
+                <img src="@/assets/img/m9.jpg" alt>
+              </div>
+              <div class="describe">{{item.describe}}</div>
+              <div class="detail">{{item.detail}}</div>
+              <div class="price">{{item.price}}元</div>
+            </div>
+          </div>
+        </div>
+        <div class="common-img">
+          <img src="@/assets/img/tv.jpg" alt>
+        </div>
+        <div class="common-title">家电</div>
       </div>
-      <div class="list">
-        <img src="@/assets/img/sub1.jpg" alt>
-      </div>
-      <div class="list">
-        <img src="@/assets/img/sub2.jpg" alt>
-      </div>
-      <div class="list">
-        <img src="@/assets/img/sub3.jpg" alt>
-      </div>
-    </div>
-    <div class="common-img">
-      <img src="@/assets/img/img1.jpg" alt="">
     </div>
   </div>
 </template>
@@ -70,11 +103,58 @@ export default {
           pic: require("@/assets/img/pic4.jpg")
         }
       ],
-      height: ""
+      items: [
+        {
+          txt: "新品",
+          describe: "小米9 8GB+128GB",
+          detail: "好看又能打",
+          price: "2999"
+        },
+        {
+          txt: "新品",
+          describe: "小米9 8GB+128GB",
+          detail: "好看又能打",
+          price: "2999"
+        },
+        {
+          txt: "新品",
+          describe: "小米9 8GB+128GB",
+          detail: "好看又能打",
+          price: "2999"
+        },
+        {
+          txt: "新品",
+          describe: "小米9 8GB+128GB",
+          detail: "好看又能打",
+          price: "2999"
+        },
+        {
+          txt: "新品",
+          describe: "小米9 8GB+128GB",
+          detail: "好看又能打",
+          price: "2999"
+        },
+        {
+          txt: "新品",
+          describe: "小米9 8GB+128GB",
+          detail: "好看又能打",
+          price: "2999"
+        },
+        {
+          txt: "新品",
+          describe: "小米9 8GB+128GB",
+          detail: "好看又能打",
+          price: "2999"
+        },
+        {
+          txt: "新品",
+          describe: "小米9 8GB+128GB",
+          detail: "好看又能打",
+          price: "2999"
+        }
+      ],
+      sideImg: require("@/assets/img/xm9.jpg")
     };
-  },
-  beforeMount: function() {
-    this.height = 400 + "px";
   },
   created() {
     this.init();
@@ -147,8 +227,8 @@ export default {
       ul {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        align-items:center;
-        li{
+        align-items: center;
+        li {
           height: 85px;
           line-height: 85px;
         }
@@ -161,10 +241,81 @@ export default {
       }
     }
   }
-  .common-img{
-    margin: 20px 0;
-    img{
+  .common-img {
+    margin: 30px 0;
+    img {
       width: 100%;
+    }
+  }
+  .common-title {
+    text-align: left;
+    padding: 30px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    .name {
+      font-size: 20px;
+      font-weight: 900;
+    }
+    .more{
+      &:hover{
+        color: #ff6700;
+        cursor: pointer;
+      }
+    }
+  }
+  .all {
+    width: 100%;
+    background-color: #f5f5f5;
+  }
+  .phone {
+    display: grid;
+    grid-gap: 0 15px;
+    justify-content: space-between;
+    grid-template-columns: 240px repeat(1, 1fr);
+    .side {
+      img {
+        width: 100%;
+      }
+    }
+    .page {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-gap: 15px;
+      .item {
+        background-color: #fff;
+        transition: all 0.2s linear;
+        &:hover {
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          transform: translate3d(0, -2px, 0);
+        }
+        .top-txt {
+          width: 60px;
+          height: 25px;
+          line-height: 25px;
+          margin: 0 auto;
+          color: #fff;
+          background-color: #83c44e;
+        }
+        .cen-img {
+          margin: 20px 0;
+          img {
+            width: 160px;
+            height: 160px;
+          }
+        }
+        .describe {
+          color: #333;
+          font-size: 16px;
+        }
+        .detail {
+          color: #b0b0b0;
+          line-height: 30px;
+        }
+        .price {
+          color: #ff6700;
+        }
+      }
     }
   }
 }
