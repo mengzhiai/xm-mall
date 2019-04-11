@@ -130,7 +130,7 @@ export default {
   li {
     line-height: 40px;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 20px;
     a {
       color: #b0b0b0;
       display: block;
@@ -145,7 +145,7 @@ export default {
   a {
     line-height: 40px;
     display: inline-block;
-    margin-right: 5px;
+    margin-left: 15px;
     color: #b0b0b0;
     &:hover {
       color: #fff;

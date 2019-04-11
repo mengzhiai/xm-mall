@@ -283,6 +283,7 @@ export default {
       grid-template-rows: repeat(2, 1fr);
       grid-gap: 15px;
       .item {
+        text-align: center;
         background-color: #fff;
         transition: all 0.2s linear;
         &:hover {
