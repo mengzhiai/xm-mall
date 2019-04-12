@@ -67,7 +67,7 @@ export default {
         },
         {
           name: "红米",
-          url: "/Redmi"
+          url: "/redmi"
         },
         {
           name: "电视",

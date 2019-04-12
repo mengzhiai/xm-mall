@@ -17,9 +17,14 @@ export default new Router({
       component: Home,
       redirect: '/homePage',
       children: [{
-        path: '/homePage',
-        component: () => import( /* webpackChunkName: "about" */ './views/mall/homePage.vue')
-      }]
+          path: '/homePage',
+          component: () => import( /* webpackChunkName: "about" */ './views/mall/homePage.vue')
+        },
+        {
+          path: '/redmi',
+          component: () => import( /* webpackChunkName: "about" */ './views/mall/redmi.vue')
+        },
+      ]
     }
   ]
 })

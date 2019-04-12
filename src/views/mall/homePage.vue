@@ -75,6 +75,16 @@
           <img src="@/assets/img/tv.jpg" alt>
         </div>
         <div class="common-title">家电</div>
+        <div class="electric">
+          <div class="item" v-for="item in electric" :key="item">
+            <div class="top-txt">{{item.txt}}</div>
+            <div class="cen-img">
+              <img :src="item.img" alt>
+            </div>
+            <div class="name">{{item.name}}</div>
+            <div class="price">{{item.price}}元</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -153,7 +163,59 @@ export default {
           price: "2999"
         }
       ],
-      sideImg: require("@/assets/img/xm9.jpg")
+      sideImg: require("@/assets/img/xm9.jpg"),
+      electric: [
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        },
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        },
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        },
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        },
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        },
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        },
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        },
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        },
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        },
+        {
+          img: require("@/assets/img/xyj.jpg"),
+          name: "米家互联网洗烘一体机10kg",
+          price: 2499
+        }
+      ]
     };
   },
   created() {
@@ -256,8 +318,8 @@ export default {
       font-size: 20px;
       font-weight: 900;
     }
-    .more{
-      &:hover{
+    .more {
+      &:hover {
         color: #ff6700;
         cursor: pointer;
       }
@@ -316,6 +378,28 @@ export default {
         .price {
           color: #ff6700;
         }
+      }
+    }
+  }
+  .electric {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    .item {
+      background-color: #fff;
+      text-align: center;
+      cursor: pointer;
+      .cen-img {
+        margin: 10px 0;
+        img {
+          width: 100%;
+        }
+      }
+      .name {
+        margin: 10px 0;
+      }
+      .price {
+        color: #ff6700;
       }
     }
   }
