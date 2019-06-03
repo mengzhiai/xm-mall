@@ -3,6 +3,7 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <siteHeader></siteHeader>
+    <router-link></router-link>
   </div>
 </template>
 
@@ -11,7 +12,6 @@
 import siteHeader from '@/components/common/siteHeader'
 
 export default {
-  name: 'home',
   components: {
     siteHeader
   }
