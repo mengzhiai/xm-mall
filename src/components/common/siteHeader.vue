@@ -20,7 +20,7 @@
           <div class="topbar-info fr">
             <!-- <a href="./login.html">登录</a> -->
             <router-link tag="a" to="/login">登录</router-link>
-            <a href>注册</a>
+            <!-- <a href>注册</a> -->
             <a href>消息通知</a>
           </div>
         </div>
