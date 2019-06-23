@@ -4,6 +4,9 @@
     <div class="containers">
       <router-view></router-view>
     </div>
+    <div>
+
+    </div>
   </div>
 </template>
 
@@ -21,6 +24,10 @@ export default {
 
       ]
     }
+  },
+  mounted(){
+    // console.log("菜单列表为",this.meg);
+    
   }
 }
 </script>

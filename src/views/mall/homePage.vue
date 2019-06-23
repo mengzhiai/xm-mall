@@ -4,7 +4,7 @@
       <div class="home-page">
         <div class="page">
           <ul>
-            <li v-for="item in itemList" :key="item">
+            <li v-for="(item,i) in itemList" :key="i">
               <span>{{item.name}}</span>
               <i class="el-icon-arrow-right"></i>
             </li>
@@ -15,7 +15,7 @@
         <li><img src="@/assets/img/pic1.jpg" alt=""></li>
           </ul>-->
           <el-carousel :interval="5000" arrow="always" height="420px">
-            <el-carousel-item v-for="item in picList" :key="item">
+            <el-carousel-item v-for="(item,i) in picList" :key="i">
               <img :src="item.pic" alt>
             </el-carousel-item>
           </el-carousel>
@@ -60,7 +60,7 @@
             <img :src="sideImg" alt>
           </div>
           <div class="page">
-            <div class="item" v-for="item in items" :key="item">
+            <div class="item" v-for="(item,i) in items" :key="i">
               <div class="top-txt">{{item.txt}}</div>
               <div class="cen-img">
                 <img src="@/assets/img/m9.jpg" alt>
@@ -76,7 +76,7 @@
         </div>
         <div class="common-title">家电</div>
         <div class="electric">
-          <div class="item" v-for="item in electric" :key="item">
+          <div class="item" v-for="(item,i) in electric" :key="i">
             <div class="top-txt">{{item.txt}}</div>
             <div class="cen-img">
               <img :src="item.img" alt>

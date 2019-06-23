@@ -63,7 +63,7 @@ export default {
       navs: [
         {
           name: "小米手机",
-          url: "/xm"
+          url: "/homePage"
         },
         {
           name: "红米",

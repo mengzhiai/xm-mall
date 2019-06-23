@@ -86,6 +86,14 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           this.$router.push("/homePage");
+          this.axios
+            .get(
+              "https://easy-mock.com/mock/5c2877e55fb9ae228ab2f385/mall/login"
+            )
+            .then(res => {
+              // this.$store.commit("undateMenu", res.data.data);
+              localStorage.setItem('menuList', JSON.stringify(res.data));
+            });
         }
       });
     }
@@ -147,5 +155,4 @@ export default {
     }
   }
 }
-
 </style>
