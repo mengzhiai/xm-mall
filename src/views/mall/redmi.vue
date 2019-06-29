@@ -30,6 +30,8 @@
         </div>
       </div>
     </div>
+    <el-button type="success" @click="submit">提交</el-button>
+    <el-button type="success" @click="submit1">提交</el-button>
   </div>
 </template>
 
@@ -78,8 +80,31 @@ export default {
           txt: "旗舰相机",
           info: "索尼4800万超清双摄"
         }
-      ]
+      ],
+      objList:{
+        name: "Tom",
+        age: 20,
+        val: 3
+      }
     };
+  },
+  methods: {
+    submit(){
+      let data = {
+        a: 1,
+        b: 2,
+        c: 3
+      }
+      this.axios.post('aaaa',this.objList)
+    },
+    submit1(){
+      this.axios.get('ddd',{
+        params: {
+          data:1,
+          ss: 2
+        }
+      })
+    }
   }
 };
 </script>
