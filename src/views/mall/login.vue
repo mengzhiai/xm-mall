@@ -104,11 +104,9 @@ export default {
 <style lang="scss" scoped>
 .login {
   .login-box {
-    background-image: url("../../assets/img/login.jpeg");
     width: 100%;
     height: 500px;
-    background-position: top center;
-    background-color: #f5f5f5;
+    background: #f5f5f5 url("../../assets/img/login.jpeg") top center;
     z-index: 3;
     // text-align: right;
     .maxbox {
