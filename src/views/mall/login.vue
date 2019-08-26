@@ -10,7 +10,7 @@
         <div></div>
         <div class="panel">
           <div class="tab">
-            <div class="item">账号登陆1</div>
+            <div class="item">账号登陆</div>
             <div class="item">扫码登陆</div>
           </div>
           <div class="box">
