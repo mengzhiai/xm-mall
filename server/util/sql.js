@@ -19,23 +19,23 @@ const navTop = {
     }
     //导航
 const nav = {
-        navData: 'select * from nav'
-    }
-    //登录
-let login = {
-    loginName: `select * from login where userName=?`,
-    loginPassword: `select password from login where userName=?`,
-
+    navData: 'select * from nav'
 }
-const register = {
+let login = `select * from login where userName=?`
+
+/* const register = {
     regName: `select * from login where userName=?`,
     regPassword: `select password from login where userName=?`,
     userInset: 'INSERT INTO `login` (`id`,`userName`,`password`) VALUES(0,?,?)',
-}
+} */
+let register = 'INSERT INTO `login` (`id`,`userName`,`password`) VALUES(0,?,?)'
 
+
+let banner = "select * from banner"
 module.exports = {
     navTop,
     nav,
     login,
-    register
+    register,
+    banner
 }

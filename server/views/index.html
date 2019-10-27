@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test">
+        {{message}}
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+    <script>
+        /* var obj = new WxLogin({
+                    self_redirect: false,
+                    id: "wx-code",
+                    appid: "***",
+                    scope: "snsapi_login",
+                    redirect_uri: "https://www.***.com/weixin_login.html",
+                    state: "",
+                    style: "",
+                    href: "https://www.***.com/css/weixin_code.css"
+                }); */
+        var vm = new Vue({
+            el: '#test',
+            data: {
+                message: 'fdafdsa'
+            }
+        })
+    </script>
+</body>
+
+</html>

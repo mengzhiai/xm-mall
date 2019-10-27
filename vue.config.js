@@ -20,7 +20,7 @@ module.exports = {
         hotOnly: false,
         proxy: {
             '/api': {
-                target: "http://localhost:3000",
+                target: "http://localhost:6000",
                 changeOrigin: true,
                 ws: true, // proxy websockets
                 pathRewrite: { //重写路径
