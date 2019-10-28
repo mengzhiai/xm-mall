@@ -23,7 +23,7 @@
           </ul>-->
                 <el-carousel :interval="5000" arrow="always" height="420px">
                     <el-carousel-item v-for="(item,i) in picList" :key="i">
-                        <img :src="require('../../../public/banner/' + item.pic)" alt />
+                        <img :src="require('../../../public/banner/' + item.pic)" class="click-cursor" @click="bannerDeail(item.productId)" />
                     </el-carousel-item>
                 </el-carousel>
             </div>
@@ -240,9 +240,10 @@ export default {
             this.axios.get("/api/banner").then(res => {
                 this.picList = res.data.data;
             });
-            /* this.axios.get('/api/productList').then(res=>{
-              console.log(res);
-            }) */
+        },
+        // banner详情页
+        bannerDeail(){
+
         }
     }
 };
@@ -455,5 +456,8 @@ export default {
             }
         }
     }
+}
+.click-cursor{
+    cursor: pointer;
 }
 </style>

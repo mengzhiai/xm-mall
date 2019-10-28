@@ -95,7 +95,7 @@ export default {
         this.init();
     },
     methods: {
-        init() {
+        /* init() {
             let status = localStorage.getItem("loginStatus");
             if (status === "1") {
                 this.isLogin = true;
@@ -113,6 +113,12 @@ export default {
         },
         getNavList() {
             return this.axios.get("/api/navList");
+        }, */
+
+        init(){
+            this.axios.get('/api/headerList').then(res=>{
+                console.log(res);
+            })
         },
         handleCommand(val) {
             if (val == "e") {

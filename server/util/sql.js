@@ -13,15 +13,10 @@
 module.exports = blogTable; */
 
 //顶部
-const navTop = {
-        //获取navTop
-        navTopData: 'select * from navTopName'
-    }
-    //导航
-const nav = {
-    navData: 'select * from nav'
-}
-let login = `select * from login where userName=?`
+let navTopData = 'select * from navTopName';
+//导航
+let navData = 'select * from nav';
+let login = `select * from login where userName=?`;
 
 /* const register = {
     regName: `select * from login where userName=?`,
@@ -33,9 +28,9 @@ let register = 'INSERT INTO `login` (`id`,`userName`,`password`) VALUES(0,?,?)'
 
 let banner = "select * from banner"
 module.exports = {
-    navTop,
-    nav,
+    navTopData,
+    navData,
     login,
     register,
-    banner
+    banner,
 }
