@@ -23,7 +23,7 @@
           </ul>-->
                 <el-carousel :interval="5000" arrow="always" height="420px">
                     <el-carousel-item v-for="(item,i) in picList" :key="i">
-                        <img :src="require('../../../public/banner/' + item.pic)" class="click-cursor" @click="bannerDeail(item.productId)" />
+                        <img :src="require('../../../public/images/banner/' + item.pic)" class="click-cursor" @click="bannerDeail(item.productId)" />
                     </el-carousel-item>
                 </el-carousel>
             </div>
@@ -67,14 +67,15 @@
                     <img :src="sideImg" alt />
                 </div>
                 <div class="page">
-                    <div class="item" v-for="(item,i) in items" :key="i">
-                        <div class="top-txt">{{item.txt}}</div>
+                    <div class="item" v-for="(item,i) in productArr" :key="i">
+                        <div class="top-txt" v-if="item.isNew==1">新品</div>
                         <div class="cen-img">
-                            <img src="@/assets/img/m9.jpg" alt />
+                            <!--<img :src="require('../../../public/images/' + item.productImg)"  alt />-->
+                            <img :src="require('../../../public/images/' + item.productImg)"  alt />
                         </div>
-                        <div class="describe">{{item.describe}}</div>
-                        <div class="detail">{{item.detail}}</div>
-                        <div class="price">{{item.price}}元</div>
+                        <div class="describe">{{item.productName}}</div>
+                        <div class="detail">{{item.productDescription}}</div>
+                        <div class="price">{{item.productPrice}}元</div>
                     </div>
                 </div>
             </div>
@@ -124,7 +125,7 @@ export default {
                   pic: require("@/assets/img/pic4.jpg")
                 } */
             ],
-            items: [{
+            productArr: [{
                     txt: "新品",
                     describe: "小米9 8GB+128GB",
                     detail: "好看又能打",
@@ -232,14 +233,18 @@ export default {
     },
     methods: {
         init() {
-            this.axios
+            /* this.axios
                 .get("https://easy-mock.com/mock/5c2877e55fb9ae228ab2f385/mall/side")
                 .then(res => {
                     this.itemList = res.data.data;
-                });
+                }); */
             this.axios.get("/api/banner").then(res => {
                 this.picList = res.data.data;
             });
+            //获取产品列表
+            this.axios.get("/api/productList").then(res=>{
+                this.productArr = res.data.data;
+            })
         },
         // banner详情页
         bannerDeail(){
@@ -385,6 +390,7 @@ export default {
             grid-gap: 15px;
 
             .item {
+                cursor: pointer;
                 text-align: center;
                 background-color: #fff;
                 transition: all 0.2s linear;

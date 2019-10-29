@@ -23,44 +23,34 @@ router.get('/headerList', function(req, res, next) {
             connection.release();
         })
     }) */
-    let sql = $sql.navTopData + $sql.navData;
+    // let sql = $sql.navTopData + $sql.navData;
+    let sql = `${$sql.navTopData};${$sql.navData}`;
     pool.query(sql, (err, result) => {
-        console.log(result);
-        if (err) {
+        console.log(result[0]);
+        console.log(result[1]);
+        if (!err) {
             res.json({
-                status: '-1',
-                ok: false,
-                msg: err.message
+                status: 200,
+                ok: true,
+                data: {
+                    topList: result[0],
+                    navList: result[1]
+                }
             });
         } else {
             res.json({
-                status: 1,
-                ok: true,
-                msg: '获取数据成功',
+                status: '-1',
+                ok: false,
+                msg: '获取数据失败',
                 data: result
             });
         }
     })
 });
 
-//导航
-router.get('/navList', (req, res, next) => {
-    pool.getConnection((err, connection) => {
-        let param = req.query || req.params;
-        connection.query($nav.navData, [param.name], (err, result) => {
-            if (!err) {
-                res.json({ code: 1, ok: true, data: result })
-            } else {
-                res.json({ ok: false, data: err })
-            }
-            connection.release();
-        })
-    })
-})
-
 
 /* 
-主页
+主页轮播图
 */
 router.get('/banner', (req, res, nex) => {
     pool.query($sql.banner, (err, result) => {
@@ -80,5 +70,31 @@ router.get('/banner', (req, res, nex) => {
         }
     })
 })
+
+
+
+/* 
+商品列表
+*/
+
+router.get('/productList', (req, res, next) => {
+    pool.query($sql.productListSql, (err, result) => {
+        if (err) {
+            res.json({
+                status: '-1',
+                ok: false,
+                msg: err.message
+            });
+        } else {
+            res.json({
+                status: 1,
+                ok: true,
+                msg: '获取数据成功',
+                data: result
+            });
+        }
+    })
+})
+
 
 module.exports = router;

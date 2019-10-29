@@ -25,6 +25,7 @@ let login = `select * from login where userName=?`;
 } */
 let register = 'INSERT INTO `login` (`id`,`userName`,`password`) VALUES(0,?,?)'
 
+let productListSql = "select * from productList";
 
 let banner = "select * from banner"
 module.exports = {
@@ -33,4 +34,5 @@ module.exports = {
     login,
     register,
     banner,
+    productListSql
 }

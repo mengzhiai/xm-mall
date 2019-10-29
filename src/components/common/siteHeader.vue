@@ -117,7 +117,8 @@ export default {
 
         init(){
             this.axios.get('/api/headerList').then(res=>{
-                console.log(res);
+                this.topList = res.data.data.topList;
+                this.navList = res.data.data.navList;
             })
         },
         handleCommand(val) {
