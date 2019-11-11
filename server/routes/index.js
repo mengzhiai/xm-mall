@@ -26,8 +26,8 @@ router.get('/headerList', function(req, res, next) {
     // let sql = $sql.navTopData + $sql.navData;
     let sql = `${$sql.navTopData};${$sql.navData}`;
     pool.query(sql, (err, result) => {
-        console.log(result[0]);
-        console.log(result[1]);
+        // console.log(result[0]);
+        // console.log(result[1]);
         if (!err) {
             res.json({
                 status: 200,

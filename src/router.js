@@ -36,6 +36,11 @@ export default new Router({
                     path: '/computer',
                     component: () =>
                         import ( /* webpackChunkName: "about" */ './views/mall/computer.vue')
+                },
+                {
+                    path: '/detail',
+                    component: () =>
+                        import ( /* webpackChunkName: "about" */ './views/mall/detail.vue')
                 }
             ]
         }

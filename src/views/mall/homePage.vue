@@ -15,7 +15,7 @@
               <span>{{item.name}}</span>
               <i class="el-icon-arrow-right"></i>
             </li>
-          </ul> -->
+          </ul>-->
             </div>
             <div class="page">
                 <!-- <ul>
@@ -67,11 +67,11 @@
                     <img :src="sideImg" alt />
                 </div>
                 <div class="page">
-                    <div class="item" v-for="(item,i) in productArr" :key="i">
+                    <div class="item" v-for="(item,i) in productArr" :key="i" @click="productDetail(item.productId)">
                         <div class="top-txt" v-if="item.isNew==1">新品</div>
                         <div class="cen-img">
                             <!--<img :src="require('../../../public/images/' + item.productImg)"  alt />-->
-                            <img :src="require('../../../public/images/' + item.productImg)"  alt />
+                            <img :src="require('../../../public/images/' + item.productImg)" alt />
                         </div>
                         <div class="describe">{{item.productName}}</div>
                         <div class="detail">{{item.productDescription}}</div>
@@ -85,12 +85,13 @@
             <div class="common-title">家电</div>
             <div class="electric">
                 <div class="item" v-for="(item,i) in electric" :key="i">
-                    <div class="top-txt">{{item.txt}}</div>
+                    <div class="top-txt" v-if="item.isNew==1">新品</div>
                     <div class="cen-img">
-                        <img :src="item.img" alt />
+                        <img :src="require('../../../public/images/' + item.productImg)" alt />
                     </div>
-                    <div class="name">{{item.name}}</div>
-                    <div class="price">{{item.price}}元</div>
+                    <div class="name">{{item.productName}}</div>
+                    <div class="detail">{{item.productDescription}}</div>
+                    <div class="price">{{item.productPrice}}元</div>
                 </div>
             </div>
         </div>
@@ -116,14 +117,14 @@ export default {
                     // pic: require("../../../static/banner/2.jpg")
                 }
                 /* {
-                  pic: require("@/assets/img/pic2.jpg")
-                },
-                {
-                  pic: require("@/assets/img/pic3.jpg")
-                },
-                {
-                  pic: require("@/assets/img/pic4.jpg")
-                } */
+                          pic: require("@/assets/img/pic2.jpg")
+                        },
+                        {
+                          pic: require("@/assets/img/pic3.jpg")
+                        },
+                        {
+                          pic: require("@/assets/img/pic4.jpg")
+                        } */
             ],
             productArr: [{
                     txt: "新品",
@@ -233,22 +234,36 @@ export default {
     },
     methods: {
         init() {
-            /* this.axios
-                .get("https://easy-mock.com/mock/5c2877e55fb9ae228ab2f385/mall/side")
-                .then(res => {
-                    this.itemList = res.data.data;
-                }); */
             this.axios.get("/api/banner").then(res => {
                 this.picList = res.data.data;
             });
             //获取产品列表
-            this.axios.get("/api/productList").then(res=>{
-                this.productArr = res.data.data;
-            })
+            this.axios.get("/api/productList").then(res => {
+                // this.productArr = res.data.data;
+                let dataList = res.data.data;
+                let [phoneList, applianceList] = [
+                    [],
+                    []
+                ];
+                dataList.forEach(item => {
+                    if (item.type === "phone") {
+                        phoneList.push(item);
+                    }
+                    if (item.type === "appliances") {
+                        applianceList.push(item);
+                    }
+                });
+                this.productArr = phoneList;
+                console.log(applianceList);
+                this.electric = applianceList;
+            });
         },
         // banner详情页
-        bannerDeail(){
-
+        bannerDeail() {},
+        //商品详情页
+        productDetail(id){
+            // console.log(id);
+            this.$router.push("/detail")
         }
     }
 };
@@ -444,7 +459,20 @@ export default {
             background-color: #fff;
             text-align: center;
             cursor: pointer;
+            transition: all 0.2s linear;
 
+            &:hover {
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                transform: translate3d(0, -2px, 0);
+            }
+            .top-txt {
+                    width: 60px;
+                    height: 25px;
+                    line-height: 25px;
+                    margin: 0 auto;
+                    color: #fff;
+                    background-color: #83c44e;
+                }
             .cen-img {
                 margin: 10px 0;
 
@@ -459,11 +487,13 @@ export default {
 
             .price {
                 color: #ff6700;
+                margin: 15px 0;
             }
         }
     }
 }
-.click-cursor{
+
+.click-cursor {
     cursor: pointer;
 }
 </style>

@@ -15,7 +15,7 @@ module.exports = {
         // },
         open: true,
         host: 'localhost',
-        port: 8080,
+        port: 9090,
         https: false,
         hotOnly: false,
         proxy: {
