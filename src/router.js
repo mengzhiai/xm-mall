@@ -23,21 +23,6 @@ export default new Router({
                         import ( /* webpackChunkName: "about" */ './views/mall/homePage.vue')
                 },
                 {
-                    path: '/redmi',
-                    component: () =>
-                        import ( /* webpackChunkName: "about" */ './views/mall/redmi.vue')
-                },
-                {
-                    path: '/test',
-                    component: () =>
-                        import ( /* webpackChunkName: "about" */ './views/mall/test.vue')
-                },
-                {
-                    path: '/computer',
-                    component: () =>
-                        import ( /* webpackChunkName: "about" */ './views/mall/computer.vue')
-                },
-                {
                     path: '/detail',
                     component: () =>
                         import ( /* webpackChunkName: "about" */ './views/mall/detail.vue')

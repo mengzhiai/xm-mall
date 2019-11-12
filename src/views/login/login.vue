@@ -147,6 +147,7 @@ export default {
                             if (res.data.ok) {
                                 this.$message.success(res.data.message);
                                 this.$router.push('/homePage');
+                                //把登录信息存到localStorage中
                                 localStorage.setItem('user', res.data.data.loginPerson)
                                 localStorage.setItem('loginStatus', 1)
                             } else {
@@ -166,11 +167,11 @@ export default {
                         this.$message.warning("请先勾选用户协议");
                         return
                     }
-                    if(this.registerForm.password !== this.registerForm.againPassword){
-                      this.$message.warning("两次输入的密码不一致,请重新输入");
-                      /* this.registerForm.password = "";
-                      this.registerForm.againPassword = ""; */
-                      return
+                    if (this.registerForm.password !== this.registerForm.againPassword) {
+                        this.$message.warning("两次输入的密码不一致,请重新输入");
+                        /* this.registerForm.password = "";
+                        this.registerForm.againPassword = ""; */
+                        return
                     }
                     let data = {
                         userName: this.registerForm.userName,
@@ -182,7 +183,7 @@ export default {
                             this.isLogin = true;
                         } else {
                             this.$message.warning(res.data.message);
-                            
+
                         }
                     })
 

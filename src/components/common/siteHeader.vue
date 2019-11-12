@@ -78,6 +78,9 @@
 
 <script>
 // import axios from "axios";
+import {
+    getLocalStorage
+} from '../../until/localStore'
 export default {
     data() {
         return {
@@ -86,40 +89,28 @@ export default {
                 name: "ddd"
             }],
             navList: [],
-            isLogin: false,
+            isLogin: true,
             loginPerson: "登录",
-            loginStatus: false
+            loginState: null
         };
     },
-    created() {
+    mounted() {
         this.init();
     },
     methods: {
-        /* init() {
-            let status = localStorage.getItem("loginStatus");
-            if (status === "1") {
-                this.isLogin = true;
-                this.loginPerson = localStorage.getItem("user");
-            }
-            this.axios.all([this.getTopList(), this.getNavList()]).then(
-                this.axios.spread((topData, navData) => {
-                    this.topList = topData.data.data;
-                    this.navList = navData.data.data;
-                })
-            );
-        },
-        getTopList() {
-            return this.axios.get("/api/navTopList");
-        },
-        getNavList() {
-            return this.axios.get("/api/navList");
-        }, */
-
-        init(){
-            this.axios.get('/api/headerList').then(res=>{
+        init() {
+            this.axios.get('/api/headerList').then(res => {
                 this.topList = res.data.data.topList;
                 this.navList = res.data.data.navList;
             })
+            //
+            this.loginState = getLocalStorage("loginStatus");
+            console.log(this.loginState);
+            if (this.loginState == 1) {
+                this.isLogin = true;
+                this.loginPerson = getLocalStorage("user");
+                console.log(this.loginPerson);
+            }
         },
         handleCommand(val) {
             if (val == "e") {
